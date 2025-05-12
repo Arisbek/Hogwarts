@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Email Confirmation</title>
+    <style>
+      /* responsive and inline styles omitted for brevity */
+    </style>
+  </head>
+  <body style="background-color:#f6f6f6;font-family:sans-serif;font-size:14px;line-height:1.4;margin:0;padding:0;">
+    <!-- preheader text -->
+    <span class="preheader" style="display:none;visibility:hidden;opacity:0;height:0;width:0;">Hi {{ email }}, welcome to {{ project_name }}! Please confirm your email.</span>
+
+    <table role="presentation" class="body" style="width:100%;background:#f6f6f6;">
+      <tr>
+        <td>&nbsp;</td>
+        <td class="container" style="max-width:580px;margin:0 auto;padding:10px;">
+          <div class="content" style="background:#fff;border-radius:3px;padding:20px;">
+
+            <h1 style="font-size:24px;margin-bottom:20px;">Welcome to {{ project_name }}!</h1>
+            <p>Hi <strong>{{ email }}</strong>,</p>
+            <p>Thanks for registering at <strong>{{ project_name }}</strong>. Please verify your email address by clicking the button below:</p>
+
+            <table role="presentation" class="btn btn-primary" style="width:100%;margin:20px 0;">
+              <tr>
+                <td align="center">
+                  <div style="background:#3498db;color:#fff;padding:12px 25px;text-decoration:none;border-radius:5px;">
+                  <form action="{{ url }}" method="POST">
+                    <input type="hidden" name="token" value="{{ token }}">
+                    <button type="submit">Verify your account</button>
+                  </form>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <p>If the button doesn’t work, copy and paste this link into your browser:</p>
+            <p><form action="{{ url }}" method="POST">
+              <input type="hidden" name="token" value="{{ token }}">
+              <button type="submit">Verify your account</button>
+            </form></p>
+
+            <p>Welcome aboard,<br>The {{ project_name }} Team</p>
+
+            <hr style="border:none;border-top:1px solid #eee;margin:20px 0;" />
+            <p style="font-size:12px;color:#999;text-align:center;">If you did not register, please ignore this email.</p>
+
+          </div>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </body>
+</html>
